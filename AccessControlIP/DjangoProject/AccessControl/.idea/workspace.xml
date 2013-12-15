@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e70a958a-5923-41e8-831a-7f058b24ff22" name="Default" comment="" />
+    <list default="true" id="e70a958a-5923-41e8-831a-7f058b24ff22" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="AccessControl.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +29,7 @@
       <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AccessControl/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="23" selection-start="332" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
+            <state line="14" column="23" selection-start="332" selection-end="338" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="2595">
               <folding />
             </state>
           </provider>
@@ -36,9 +39,7 @@
         <entry file="file://$PROJECT_DIR$/DBGUI/accesscontrol.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="82" column="20" selection-start="2415" selection-end="2415" vertical-scroll-proportion="0.0" vertical-offset="889" max-vertical-offset="2235">
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,7 +47,7 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBGUI/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.0" vertical-offset="354" max-vertical-offset="1035">
+            <state line="26" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1065">
               <folding />
             </state>
           </provider>
@@ -55,7 +56,7 @@
       <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBGUI/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="49" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+            <state line="11" column="49" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="615">
               <folding />
             </state>
           </provider>
@@ -65,9 +66,7 @@
         <entry file="file://$PROJECT_DIR$/DBGUI/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="57" column="42" selection-start="2127" selection-end="2127" vertical-scroll-proportion="0.0" vertical-offset="620" max-vertical-offset="960">
-              <folding>
-                <element signature="e#0#65#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,10 +74,8 @@
       <file leaf-file-name="details.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="25" selection-start="1083" selection-end="1083" vertical-scroll-proportion="1.2708334" vertical-offset="143" max-vertical-offset="1140">
-              <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="38" column="25" selection-start="1083" selection-end="1083" vertical-scroll-proportion="1.409241" vertical-offset="143" max-vertical-offset="1140">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,7 +83,7 @@
       <file leaf-file-name="RequestForm.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/RequestForm.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="25" selection-start="885" selection-end="885" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="1470">
+            <state line="20" column="25" selection-start="885" selection-end="885" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1470">
               <folding />
             </state>
           </provider>
@@ -95,7 +92,7 @@
       <file leaf-file-name="picker.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/DBGUI/js/picker.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="48" selection-start="82" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12315">
+            <state line="4" column="48" selection-start="82" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="12315">
               <folding />
             </state>
           </provider>
@@ -109,7 +106,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="GitLogSettings">
     <option name="myDateState">
@@ -129,12 +126,11 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
     <option name="y" value="24" />
-    <option name="width" value="1368" />
-    <option name="height" value="721" />
+    <option name="width" value="1366" />
+    <option name="height" value="720" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -160,6 +156,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -276,14 +273,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -558,25 +554,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="24" width="1368" height="721" extended-state="6" />
+    <frame x="0" y="24" width="1366" height="720" extended-state="1" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26608697" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26480836" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956153" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23863636" sideWeight="0.73391306" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24658574" sideWeight="0.67770034" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26308346" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32347825" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32229966" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -599,32 +595,24 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DBGUI/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBGUI/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBGUI/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="31" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
+        <state line="8" column="31" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBGUI/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="410">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="410" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AccessControl/urls.py">
@@ -636,18 +624,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.3314917" vertical-offset="0" max-vertical-offset="362">
-          <folding />
-        </state>
+        <state line="9" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="0.3314917" vertical-offset="0" max-vertical-offset="362" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/DBGUI/js/exporting.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/DBGUI/js/highcharts.js">
@@ -675,7 +657,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/RequestForm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="25" selection-start="885" selection-end="885" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="1470">
+        <state line="20" column="25" selection-start="885" selection-end="885" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1470">
           <folding />
         </state>
       </provider>
@@ -697,27 +679,21 @@
     <entry file="file://$PROJECT_DIR$/DBGUI/accesscontrol.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="82" column="20" selection-start="2415" selection-end="2415" vertical-scroll-proportion="0.0" vertical-offset="889" max-vertical-offset="2235">
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBGUI/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="42" selection-start="2127" selection-end="2127" vertical-scroll-proportion="0.0" vertical-offset="620" max-vertical-offset="960">
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="25" selection-start="1083" selection-end="1083" vertical-scroll-proportion="1.2708334" vertical-offset="143" max-vertical-offset="1140">
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="38" column="25" selection-start="1083" selection-end="1083" vertical-scroll-proportion="1.409241" vertical-offset="143" max-vertical-offset="1140">
+          <folding />
         </state>
       </provider>
     </entry>
