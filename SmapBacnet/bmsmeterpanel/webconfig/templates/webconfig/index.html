@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Smap BACnet Meter Driver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Smap BACnet Meter Driver</a>
+          </div>
+ 
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse">
+            <div class="btn-group">
+                <a href="/config"><button type="button" class="btn btn-success navbar-btn"><span class="glyphicon glyphicon-home"></span> Home</button></a>
+            </div>
+            <ul class="nav navbar-nav pull-right">
+            <a href="/config/scanlist"><button type="button" class="btn btn-info navbar-btn"><span class="glyphicon glyphicon-list"></span> BACnet List</button></a>
+            <a href="/config/debug"><button type="button" class="btn btn-info navbar-btn"><span class="glyphicon glyphicon-wrench"></span> Debugging</button></a>
+            	<a href="/config/reboot" onclick="return confirm('Are you sure? Please wait for a minute and then refresh this page.')"><button type="button" class="btn btn-warning navbar-btn"><span class="glyphicon glyphicon-repeat"></span> Apply Changes</button></a>
+            	
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+        </nav>
+  <div class="jumbotron">
+  <div class="container">
+    <h1>Smap Configured BACnet Meter Points</h1>
+    <a href="/config/add"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Meter Point</button></a>
+  </div>
+  </div>
+    <div>
+        <div class="col-md-7 col-md-offset-1"><h3></h3>
+        {% if PointsList %}
+            <div class="list-group">
+                {% for Point in PointsList %}
+                <a href="/config/{{ forloop.counter0 }}/edit" class="list-group-item">
+                    <h4 class="list-group-item-heading">Point #{{ forloop.counter0 }}</h4>
+                    <h4 class="list-group-item-heading">Path: ../{{ Point.point_building }}/Meter{{ Point.meterid }}/{{ Point.value_type }}</h4>
+                    <p class="list-group-item-text">Device IP: {{ Point.ip }}</p>
+                    <p class="list-group-item-text">BACnet Object Type: {{ Point.obj_type }}</p>
+                    <p class="list-group-item-text">BACnet Instance ID: {{ Point.inst_id }}</p>
+                    <p class="list-group-item-text">BACnet Source: {{ Point.point_source }}</p>
+                    <p class="list-group-item-text">MeterID: {{ Point.meterid }}</p>
+                    <p class="list-group-item-text">Building: {{ Point.point_building }}</p>
+                    <p class="list-group-item-text">Rate: {{ Point.rate }}</p>
+                </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <BR></BR>
+            <h4>No points were read.</h4>
+        {% endif %}
+            <footer>
+            <p class="pull-right"><a href="#">Back to top</a></p>
+        </footer>
+        </div>
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static "js/bootstrap.js" %}"></script>
+
+  </body>
+</html>
