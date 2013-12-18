@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 def PIR_Read():
-	GPIO_pin = 17
+	GPIO_pin = 18
 
 	GPIO.setmode(GPIO.BCM)
 

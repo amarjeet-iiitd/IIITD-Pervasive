@@ -1,0 +1,309 @@
+<html>
+	<head>
+		<title>RPi Configuration Page</title>
+		<script src="jquery-2.0.3.min.js"></script>
+		<script src="script.js"></script>
+		
+		<style>
+			body {
+				
+			}
+			#MainBody {
+				//background-image: url('back.jpg');
+				background-color: #fafaff;
+				font-family: Arial;
+				padding: 2%;
+				margin: 5%;
+				box-shadow: 2px 2px 10px;			
+			}
+			table {
+				margin: 5%;
+			}
+			td {
+				padding: 0.2cm;
+			}
+		</style>
+	</head>
+	
+	<body>
+	<div id='MainBody'>	
+		<h1>RPi Configuration Page</h1>
+		<br>
+		<button type='button' id='Reboot'>REBOOT</button>
+		
+		<!--
+		Elements for Real-time Sensor value monitoring
+		-->
+		<hr>
+		<form onSubmit='return false;'>
+		<table id='SENSOR_VALUES'>
+			<tr>
+				<td colspan=5>
+					<h2>SENSOR VALUES</h2>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h4>Tempurature</h4>
+				</td>
+				<td>
+					<h4 id='TEMP_VAL'></h4>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h4>Light</h4>
+				</td>
+				<td>
+					<h4 id='LIGHT_VAL'></h4>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h4>PIR</h4>
+				</td>
+				<td>
+					<h4 id='PIR_VAL'></h4>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Refresh Time (secs)
+				</td>
+				<td>
+					<input type='text' id='RefreshTime' value='2' size='2'>
+				</td>
+				<td>
+					<button type='submit' id='RefreshTimeSet'>SET</button>
+				</td>
+			</tr>
+		</table>
+		</form>
+		
+		<!--
+		Elements for DEVICE PARAMETERS
+		-->
+		<hr>
+		
+		<form onSubmit='return false;'>
+		<table id='DEVICE_PARAMETERS'>
+			<tr>
+				<td colspan=5>
+					<h2>DEVICE PARAMETERS</h2>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Mode :
+				</td>
+				<td>
+					<input type='radio' name='Mode' id='Mode-1'> Real-time Sample & Publish
+				</td>
+				<td>
+					<input type='radio' name='Mode' id='Mode-2'> Store & Upload
+				</td>
+			<tr>
+		
+			<tr>
+				<td>
+					Sampling Period (secs)
+				</td>
+				<td>
+					<input type='number' min='1' id='SamplingPeriod' size='4'>
+				</td>
+			</tr>
+				
+			<tbody id='Mode-1-Parameters'>
+				<tr>
+					<td>
+						Publish Period (secs)
+					</td>
+					<td>
+						<input type='number' min='5' id='PublishPeriod' size='4'>
+					</td>
+				</tr>
+			</tbody>
+		
+			<tbody id='Mode-2-Parameters'>
+				<tr>
+					<td>
+						Store Length (secs)
+					</td>
+					<td>
+						<input type='number' id='StoreLength' size='4'>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Store Path
+					</td>
+					<td>
+						<input type='text' id='StorePath' size='50'>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Upload Period (secs)
+					</td>
+					<td>
+						<input type='number' id='UploadPeriod' size='4'>
+					</td>
+				</tr>
+			</tbody>
+		
+			<tr>
+				<td>
+					<button type='submit' id='SaveDeviceParameters'>
+					Save Device Parameters
+					</button>
+				</td>
+			</tr>
+		</table>
+		</form>
+		
+		<!--
+		Elements for SENSORACT PARAMETERS
+		-->
+		<hr>
+		<form onSubmit='return false;'>
+		<table id='SENSORACT_PARAMETERS'>
+			<tr>
+				<td colspan=5>
+					<h2>SENSORACT PARAMETERS</h2>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					API key
+				</td>
+				<td>
+					<input type='text' id='APIkey' size='50'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Device Name
+				</td>
+				<td>
+					<input type='text' id='DeviceName' size='30'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Device Location
+				</td>
+				<td>
+					<input type='text' id='DeviceLocation' size='30'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type='submit' id='SaveSensoractParameters'>
+					Save SensorAct Parameters
+					</button>
+				</td>
+			</tr>
+		</table>
+		</form>
+		
+		<!--
+		Elements for CONNECTION PARAMETERS
+		-->
+		<hr>
+		
+		<form onSubmit='return false;'>
+		<table id='CONNECTION_PARAMETERS'>
+			<tr>
+				<td colspan=5>
+					<h2>CONNECTION PARAMETERS</h2>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Server IP
+				</td>
+				<td>
+					<input type='text' id='ServerIP'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Server Port
+				</td>
+				<td>
+					<input type='number' id='ServerPort'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Server URL
+				</td>
+				<td>
+					<input type='text' id='ServerURL'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type='submit' id='SaveConnectionParameters'>
+					Save Connection Parameters
+					</button>
+				</td>
+			</tr>
+		</table>
+		</form>
+		
+		<!--
+		Elements for LOG PARAMETERS
+		-->
+		<hr>
+		
+		<form onSubmit='return false;'>
+		<table id='LOG_PARAMETERS'>
+			<tr>
+				<td colspan=5>
+					<h2>LOG PARAMETERS</h2>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Enable Log
+				</td>
+				<td>
+					<input type='checkbox' id='EnableLog'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Directory
+				</td>
+				<td>
+					<input type='text' id='LogDir'>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Tags
+				</td>
+				<td>
+					<select multiple size="5" id='LogTags'>
+						<option value="info">INFO</option>
+						<option value="error">ERROR</option>
+						<option value="readings">READINGS</option>
+						<option value="post_buffer">POST BUFFERS</option>
+						<option value="server_response">SERVER RESPONSES</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type='submit' id='SaveLogParameters'>
+					Save Log Parameters
+					</button>
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+	</body>
+</html>
+
