@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Smap BACnet Driver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Smap BACnet Driver</a>
+          </div>
+ 
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse">
+            <div class="btn-group">
+                <a href="/config"><button type="button" class="btn btn-success navbar-btn"><span class="glyphicon glyphicon-home"></span> Home</button></a>
+            </div>
+            <ul class="nav navbar-nav pull-right"></ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+        </nav>
+  <div class="jumbotron">
+  <div class="container">
+    <h1>BACnet Debugging</h1>
+  </div>
+  </div>
+    <div>
+        <div class="col-md-7 col-md-offset-1">
+        <h3>Type in a Point Details to directly try to read it</h3>
+        
+<form action="/config/debug" method="post">
+	{% csrf_token %}
+<p><label for="id_address">Device IP:</label> <input id="id_address" maxlength="200" name="address" type="text" value="0.0.0.0" /></p>
+<p><label for="id_obj_type">Object Type:</label> <input id="id_obj_type" maxlength="200" name="obj_type" type="text" value="analogInput" /></p>
+<p><label for="id_inst_id">Instance ID:</label> <input id="id_inst_id" maxlength="200" name="inst_id" type="text" value="0" /></p>
+<p><label for="id_prop_id">Property ID:</label> <input id="id_prop_id" maxlength="200" name="prop_id" type="text" value="presentValue" /></p>
+	<input type="submit" value="Submit" />
+</form>
+	{% if ReadResult %}
+	<h4>The read value is: {{ ReadResult }}</h4>
+	{% endif %}
+        
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static "js/bootstrap.js" %}"></script>
+
+  </body>
+</html>
