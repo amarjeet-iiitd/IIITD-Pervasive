@@ -12,7 +12,7 @@ import os
 import socket
 
 ## TESTING
-import threading
+#~ import threading
 
 def uploadReadings():
 	log('info', 'UploadTask started')

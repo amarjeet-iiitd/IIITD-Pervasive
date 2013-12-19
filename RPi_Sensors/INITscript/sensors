@@ -1,0 +1,20 @@
+#! /bin/sh
+# /etc/init.d/sensors
+
+case "$1" in
+  start)
+    echo "Starting Sensors Monitoring"
+    # run application you want to start
+    python /home/rishav/rpi_sensors/main.py &
+    ;;
+  stop)
+    echo "You will have to stop it manually"
+    # kill application you want to stop
+    ;;
+  *)
+    echo "Usage: /etc/init.d/sensors {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0

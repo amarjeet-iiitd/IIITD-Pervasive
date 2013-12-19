@@ -5,8 +5,8 @@
 #
 
 # Import variables from other project files
-from store import StoreTask
-from sample import SampleTask
+from store_upload.store import StoreTask
+from sample_publish.sample import SampleTask
 from profile import profile
 import logger
 

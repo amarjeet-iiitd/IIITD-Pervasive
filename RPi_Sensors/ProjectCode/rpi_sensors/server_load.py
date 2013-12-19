@@ -1,10 +1,9 @@
 
-import config
-import device as Device
-import sensoract as Sensoract
-import connection as Connection
-import log as LogParam
-import traceback, sys
+import profile_io.device as Device
+import profile_io.sensoract as Sensoract
+import profile_io.connection as Connection
+import profile_io.log as LogParam
+import config as config
 
 FILE_PATH = config.FOLDER_PATH + '/profile_io/data/'
 
@@ -29,4 +28,3 @@ try:
 except Exception as e:
 	print('ERROR')
 	print(e.args)
-	traceback.print_exc(file=sys.stdout)

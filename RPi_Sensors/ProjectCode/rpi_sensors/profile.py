@@ -22,7 +22,7 @@ import profile_io.device as Device
 import profile_io.sensoract as Sensoract
 import profile_io.connection as Connection
 import profile_io.log as LogParam
-import profile_io.config as config		# config file contains the PATH to PROJECT FOLDER
+import config as config				# config file contains the PATH to PROJECT FOLDER
 
 # defining path where the profile parameters will be saved
 FILE_PATH = config.FOLDER_PATH + '/profile_io/data/'

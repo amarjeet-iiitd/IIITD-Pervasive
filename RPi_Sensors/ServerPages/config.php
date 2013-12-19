@@ -1,3 +1,4 @@
 <?php
-	$PATH = "/home/rishav/rpi-sensors/V8";
+	// Dont add '/' at the end of PATH
+	$PATH = "/home/rishav/rpi_sensors";
 ?>

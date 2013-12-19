@@ -1,8 +1,7 @@
 
-import PIR
-import interfacei2clightsensor as Light
-import ds1820_final_1 as Temp
-
+import sensors.PIR as PIR
+import sensors.interfacei2clightsensor as Light
+import sensors.ds1820_final_1 as Temp
 
 print(Temp.read_temp())
 
@@ -17,3 +16,4 @@ print(PIR.PIR_Read())
 #~ print(int(random.random()*10))
 #~ print(int(random.random()*10))
 #~ print(int(random.random()*10))
+

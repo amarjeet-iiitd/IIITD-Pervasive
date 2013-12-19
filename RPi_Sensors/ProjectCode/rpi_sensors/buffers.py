@@ -10,11 +10,11 @@ from profile import profile
 from logger import log
 
 # import files for sensors
-import PIR
-import interfacei2clightsensor as Light
-import ds1820_final_1 as Temp
+import sensors.PIR as PIR
+import sensors.interfacei2clightsensor as Light
+import sensors.ds1820_final_1 as Temp
 
-#~ num = 0		# TESTING
+num = 0		# TESTING
 
 '''
  Returns a tuple containing the readings from the sensors
