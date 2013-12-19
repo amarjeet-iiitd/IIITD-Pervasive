@@ -35,7 +35,7 @@ TaskManager()
 
 application = None
 
-
+#Smap BACnet Application definition. SynchronousApplication because it runs only when required, instead of running all the time in the background.
 class SynchronousApplication(BIPSimpleApplication):
 
     def __init__(self, local_address, routers):
@@ -58,6 +58,7 @@ class SynchronousApplication(BIPSimpleApplication):
         run()
         return self.apdu
 
+#BACnet readproperty function
 def ReadProperty(
     object_type,
     object_instance,
@@ -70,11 +71,12 @@ def ReadProperty(
                                   propertyIdentifier=property_id)
     request.pduDestination = Address(address)
     apdu = application.make_request(request)
-
+    #Error handling
     if isinstance(apdu, Error):
         sys.stdout.write('error: %s\n' % (apdu.errorCode, ))
         sys.stdout.flush()
         return 'Error!'
+    #Error handling
     elif isinstance(apdu, AbortPDU):
 
         apdu.debug_contents()
@@ -95,7 +97,7 @@ def ReadProperty(
                 value = apdu.propertyValue.cast_out(datatype.subtype)
         else:
             value = apdu.propertyValue.cast_out(datatype)
-        if(value=="inactive"):
+        if(value=="inactive"): #For binary values
             value=0.0
         if (value=="active"):
             value=1.0
@@ -107,7 +109,7 @@ class BacnetPoint:
         self.obj_type = obj_type
         self.inst_id = inst_id
         self.prop_type = prop_type
-        self.value_type = value_type        #Physical Type
+        self.value_type = value_type        #Physical Type, eg Power
         self.value_unit = value_unit
         self.rate = rate
         self.point_parent = point_parent
@@ -121,7 +123,7 @@ class BACnetBMSDriver(SmapDriver):
     def setup(self, opts):
 
         if type(opts.get('inst_ids')) == str:
-            print "Reading Single!"
+            print "Reading Single Point!"
             self.ips = [str(opts.get('ip'))]
             self.obj_types = [str(opts.get('obj_type'))]
             self.inst_ids = [int(opts.get('inst_ids'))]
@@ -135,7 +137,7 @@ class BACnetBMSDriver(SmapDriver):
             self.point_builings = [str(opts.get('point_builing'))]
             self.point_sources = [str(opts.get('point_source'))]
         else:
-            print "Reading Multiple!"
+            print "Reading Multiple Points!"
             self.ips = [str(x) for x in opts.get('ip')]
             self.obj_types = [str(x) for x in opts.get('obj_type')]
             self.inst_ids = [int(x) for x in opts.get('inst_id')]
@@ -153,6 +155,7 @@ class BACnetBMSDriver(SmapDriver):
 
         points = []
         print self.ips
+        #Add all read points to collection of points
         for x in xrange(0, self.point_count):
             points += [BacnetPoint(
                 self.ips[x],
@@ -185,16 +188,19 @@ class BACnetBMSDriver(SmapDriver):
 
         self.SLOWEST_POSSIBLE_RATE = 64
         self.queue = []
-
+        
+        #Instantiate empty queue
         for x in xrange(0, self.SLOWEST_POSSIBLE_RATE):
             self.queue += [[]]
 
+        #Add all points to the list of points to be read
         for self.current in xrange(0, self.point_count):
             self.queue[self.current].append(points[self.current])
 
         self.current = 0
 
         for x in points:
+            #Creating paths as required
             path = ('/' + str(x.point_source))
             if (self.get_collection(path) == None):
                 print ("Adding " + path)
@@ -210,12 +216,13 @@ class BACnetBMSDriver(SmapDriver):
 
             self.point_coll = self.get_collection(path)
             print self.point_coll
-
+            #Add metadata to the whole collection
             self.point_coll['Metadata'] = \
                 {'Instrument': {'Manufacturer': 'Trane',
                  'Model': 'Tracer SC'}}
             print "Adding TimeSeries"
             ts = self.add_timeseries('/' + str(x.point_source) + '/' + str(x.point_building) + '/' + str(x.point_parent) + '/' + x.point_name, x.value_unit, data_type='double',timezone='Asia/Kolkata')
+            #Add Metadata to specific timeseries
             ts['Metadata'] = {'Instrument': {'SamplingPeriod': str(str(x.rate) + ' Seconds')}, 'Extra': {'PhysicalParameter': x.value_type,'IP': x.ip}, 'Location': {'Floor': str(x.point_floor), 'Building': x.point_building}, 'BACnet': {'BACnetObjType': x.obj_type,'BACnetInstID': str(x.inst_id)}}     
 
         print "Initializing BACpypes!"
@@ -236,7 +243,7 @@ class BACnetBMSDriver(SmapDriver):
     def read(self):
         for x in self.queue[self.current]:
             t = util.now()
-            self.res = ReadProperty(x.obj_type, x.inst_id, "presentValue", x.ip)      #ReadBacpypes
+            self.res = ReadProperty(x.obj_type, x.inst_id, "presentValue", x.ip)      #Read from Bacpypes
             print ("Reading " + x.point_parent + " " + x.point_name)
             value = self.res
             print value
@@ -247,6 +254,7 @@ class BACnetBMSDriver(SmapDriver):
             self.add('/' + str(x.point_source) + '/' + str(x.point_building) + '/' + str(x.point_parent) + '/' + x.point_name, t, value)
 
         pop_count = len(self.queue[self.current])
+        #Pop and append the point to its corresponding list when its to be read next.
         for x in xrange(0, pop_count):
             popped = self.queue[self.current].pop(0)
             next_index = (self.current + popped.rate)\
