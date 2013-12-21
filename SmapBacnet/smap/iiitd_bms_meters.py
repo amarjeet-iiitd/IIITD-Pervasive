@@ -104,7 +104,7 @@ def ReadProperty(
         return value
 
 class BacnetPoint:
-    def __init__(self, ip, obj_type, inst_id, prop_type, value_type, value_unit, rate, wing, point_floor, point_building, point_source, point_type, point_loadtype, point_subloadtype, point_supplytype, meterid):
+    def __init__(self, ip, obj_type, inst_id, prop_type, value_type, value_unit, rate, wing, point_floor, point_building, point_source, point_type, point_loadtype, point_subloadtype, point_supplytype, meterid):#Add any new Metadata to be added here
         self.ip = ip
         self.obj_type = obj_type
         self.inst_id = inst_id
@@ -121,6 +121,7 @@ class BacnetPoint:
         self.point_supplytype = point_supplytype
         self.wing = wing
         self.meterid = meterid
+        #Add any new Metadata to be added here
 
 class BACnetBMSMetersDriver(SmapDriver):
 
@@ -144,6 +145,7 @@ class BACnetBMSMetersDriver(SmapDriver):
             self.point_supplytypes = [str(opts.get('point_supplytype'))]
             self.wings = [str(opts.get('wing'))]
             self.meterids = [str(opts.get('meterid'))]
+            #Add any new Metadata to be added here
         else:
             print "Reading Multiple Points!"
             self.ips = [str(x) for x in opts.get('ip')]
@@ -162,6 +164,7 @@ class BACnetBMSMetersDriver(SmapDriver):
             self.point_supplytypes = [str(x) for x in opts.get('point_supplytype')]
             self.wings = [str(x) for x in opts.get('wing')]
             self.meterids = [str(x) for x in opts.get('meterid')]
+            #Add any new Metadata to be added here
 
         self.point_count = len(self.inst_ids)
 
@@ -186,6 +189,7 @@ class BACnetBMSMetersDriver(SmapDriver):
                 self.point_subloadtypes[x],
                 self.point_supplytypes[x],
                 self.meterids[x]
+                #Add any new Metadata to be added here
                 )]
 
         """del self.ips
@@ -203,7 +207,8 @@ class BACnetBMSMetersDriver(SmapDriver):
         del self.point_subloadtypes
         del self.point_supplytypes
         del self.wings
-        del self.meterids"""
+        del self.meterids
+        #Add any new Metadata to be added here"""
 
         self.current = 0  # #Index for the queue
 
@@ -255,6 +260,7 @@ class BACnetBMSMetersDriver(SmapDriver):
                 'BACnetObjType': x.obj_type,
                 'BACnetInstID': x.inst_id
                 }}
+                #Add any new Metadata to be added here
 
         print "Initializing BACpypes!"
 

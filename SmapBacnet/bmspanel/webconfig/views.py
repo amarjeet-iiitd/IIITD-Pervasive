@@ -79,7 +79,7 @@ def addpoint(request):
 		form=PointForm(request.POST)
 		if form.is_valid():
 			print (form.cleaned_data)
-			bacpoint = BacnetPoint(form.cleaned_data['ip'], form.cleaned_data['obj_type'], str(form.cleaned_data['inst_id']), form.cleaned_data['prop_type'], form.cleaned_data['value_type'], form.cleaned_data['value_unit'], str(form.cleaned_data['rate']), form.cleaned_data['point_parent'], form.cleaned_data['point_name'], str(form.cleaned_data['point_floor']), form.cleaned_data['point_building'], form.cleaned_data['point_source'])
+			bacpoint = BacnetPoint(form.cleaned_data['ip'], form.cleaned_data['obj_type'], str(form.cleaned_data['inst_id']), form.cleaned_data['prop_type'], form.cleaned_data['value_type'], form.cleaned_data['value_unit'], str(form.cleaned_data['rate']), form.cleaned_data['point_parent'], form.cleaned_data['point_name'], str(form.cleaned_data['point_floor']), form.cleaned_data['point_building'], form.cleaned_data['point_source'])#Add any new Metadata to be added here
 			configaddpoint(filepath, bacpoint)
 		return HttpResponseRedirect('/config')
 
@@ -94,7 +94,7 @@ def editpoint(request, config_id):
 		form=PointForm(request.POST)
 		if form.is_valid():
 			print (form.cleaned_data)
-			bacpoint = BacnetPoint(form.cleaned_data['ip'], form.cleaned_data['obj_type'], str(form.cleaned_data['inst_id']), form.cleaned_data['prop_type'], form.cleaned_data['value_type'], form.cleaned_data['value_unit'], str(form.cleaned_data['rate']), form.cleaned_data['point_parent'], form.cleaned_data['point_name'], str(form.cleaned_data['point_floor']), form.cleaned_data['point_building'], form.cleaned_data['point_source'])
+			bacpoint = BacnetPoint(form.cleaned_data['ip'], form.cleaned_data['obj_type'], str(form.cleaned_data['inst_id']), form.cleaned_data['prop_type'], form.cleaned_data['value_type'], form.cleaned_data['value_unit'], str(form.cleaned_data['rate']), form.cleaned_data['point_parent'], form.cleaned_data['point_name'], str(form.cleaned_data['point_floor']), form.cleaned_data['point_building'], form.cleaned_data['point_source'])#Add any new Metadata to be added here
 			configdeletepoint(filepath, int(config_id))
 			configaddpoint(filepath, bacpoint)
 		return HttpResponseRedirect('/config')

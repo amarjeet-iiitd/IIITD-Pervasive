@@ -81,7 +81,7 @@ def addpoint(request):
 		form=PointForm(request.POST)
 		if form.is_valid():
 			print (form.cleaned_data)
-			bacpoint = BacnetMeterPoint(form.cleaned_data['ip'], form.cleaned_data['obj_type'], str(form.cleaned_data['inst_id']), form.cleaned_data['prop_type'], form.cleaned_data['value_type'], form.cleaned_data['value_unit'], str(form.cleaned_data['rate']), form.cleaned_data['wing'],str(form.cleaned_data['point_floor']), form.cleaned_data['point_building'], form.cleaned_data['point_source'], form.cleaned_data['point_type'],form.cleaned_data['point_loadtype'],form.cleaned_data['point_subloadtype'],form.cleaned_data['point_supplytype'],str(form.cleaned_data['meterid']))
+			bacpoint = BacnetMeterPoint(form.cleaned_data['ip'], form.cleaned_data['obj_type'], str(form.cleaned_data['inst_id']), form.cleaned_data['prop_type'], form.cleaned_data['value_type'], form.cleaned_data['value_unit'], str(form.cleaned_data['rate']), form.cleaned_data['wing'],str(form.cleaned_data['point_floor']), form.cleaned_data['point_building'], form.cleaned_data['point_source'], form.cleaned_data['point_type'],form.cleaned_data['point_loadtype'],form.cleaned_data['point_subloadtype'],form.cleaned_data['point_supplytype'],str(form.cleaned_data['meterid'])) #Add any new Metadata to be added here in the constructor
 			configaddpoint(filepath, bacpoint)
 		return HttpResponseRedirect('/config')
 
@@ -96,7 +96,7 @@ def editpoint(request, config_id):
 		form=PointForm(request.POST)
 		if form.is_valid():
 			print (form.cleaned_data)
-			bacpoint = BacnetMeterPoint(form.cleaned_data['ip'], form.cleaned_data['obj_type'], str(form.cleaned_data['inst_id']), form.cleaned_data['prop_type'], form.cleaned_data['value_type'], form.cleaned_data['value_unit'], str(form.cleaned_data['rate']), form.cleaned_data['wing'],str(form.cleaned_data['point_floor']), form.cleaned_data['point_building'], form.cleaned_data['point_source'], form.cleaned_data['point_type'],form.cleaned_data['point_loadtype'],form.cleaned_data['point_subloadtype'],form.cleaned_data['point_supplytype'],str(form.cleaned_data['meterid']))
+			bacpoint = BacnetMeterPoint(form.cleaned_data['ip'], form.cleaned_data['obj_type'], str(form.cleaned_data['inst_id']), form.cleaned_data['prop_type'], form.cleaned_data['value_type'], form.cleaned_data['value_unit'], str(form.cleaned_data['rate']), form.cleaned_data['wing'],str(form.cleaned_data['point_floor']), form.cleaned_data['point_building'], form.cleaned_data['point_source'], form.cleaned_data['point_type'],form.cleaned_data['point_loadtype'],form.cleaned_data['point_subloadtype'],form.cleaned_data['point_supplytype'],str(form.cleaned_data['meterid']))#Add any new Metadata to be added here in the constructor
 			configdeletepoint(filepath, int(config_id))
 			configaddpoint(filepath, bacpoint)
 		return HttpResponseRedirect('/config')

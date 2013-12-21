@@ -104,7 +104,7 @@ def ReadProperty(
         return value
 
 class BacnetPoint:
-    def __init__(self, ip, obj_type, inst_id, prop_type, value_type, value_unit, rate, point_parent, point_name, point_floor, point_building, point_source):
+    def __init__(self, ip, obj_type, inst_id, prop_type, value_type, value_unit, rate, point_parent, point_name, point_floor, point_building, point_source):#Add new metadata here in the constructor
         self.ip = ip
         self.obj_type = obj_type
         self.inst_id = inst_id
@@ -117,6 +117,7 @@ class BacnetPoint:
         self.point_floor = point_floor
         self.point_building = point_building
         self.point_source = point_source
+        #Add any new Metadata to be added here
 
 class BACnetBMSDriver(SmapDriver):
 
@@ -136,6 +137,7 @@ class BACnetBMSDriver(SmapDriver):
             self.point_floors = [int(opts.get('point_floor'))]
             self.point_builings = [str(opts.get('point_builing'))]
             self.point_sources = [str(opts.get('point_source'))]
+            #Add any new Metadata to be added here
         else:
             print "Reading Multiple Points!"
             self.ips = [str(x) for x in opts.get('ip')]
@@ -150,6 +152,7 @@ class BACnetBMSDriver(SmapDriver):
             self.point_floors = [int(x) for x in opts.get('point_floor')]
             self.point_buildings = [str(x) for x in opts.get('point_building')]
             self.point_sources = [str(x) for x in opts.get('point_source')]
+            #Add any new Metadata to be added here
 
         self.point_count = len(self.inst_ids)
 
@@ -170,6 +173,7 @@ class BACnetBMSDriver(SmapDriver):
                 self.point_floors[x],
                 self.point_buildings[x],
                 self.point_sources[x]
+                #Add any new Metadata to be added here
                 )]
 
         """del self.ips
@@ -183,7 +187,8 @@ class BACnetBMSDriver(SmapDriver):
         del self.point_names
         del self.point_floors
         del self.point_buildings
-        del self.point_sources"""
+        del self.point_sources
+        #Add any new Metadata to be added here"""
         self.current = 0  # #Index for the queue
 
         self.SLOWEST_POSSIBLE_RATE = 64
@@ -224,6 +229,7 @@ class BACnetBMSDriver(SmapDriver):
             ts = self.add_timeseries('/' + str(x.point_source) + '/' + str(x.point_building) + '/' + str(x.point_parent) + '/' + x.point_name, x.value_unit, data_type='double',timezone='Asia/Kolkata')
             #Add Metadata to specific timeseries
             ts['Metadata'] = {'Instrument': {'SamplingPeriod': str(str(x.rate) + ' Seconds')}, 'Extra': {'PhysicalParameter': x.value_type,'IP': x.ip}, 'Location': {'Floor': str(x.point_floor), 'Building': x.point_building}, 'BACnet': {'BACnetObjType': x.obj_type,'BACnetInstID': str(x.inst_id)}}     
+            #Add any new Metadata in the appropriate tags
 
         print "Initializing BACpypes!"
 

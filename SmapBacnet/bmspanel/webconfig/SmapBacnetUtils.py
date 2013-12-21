@@ -101,7 +101,7 @@ def ReadProperty(
 
 
 class BacnetPoint:
-    def __init__(self, ip, obj_type, inst_id, prop_type, value_type, value_unit, rate, point_parent, point_name, point_floor, point_building, point_source):
+    def __init__(self, ip, obj_type, inst_id, prop_type, value_type, value_unit, rate, point_parent, point_name, point_floor, point_building, point_source):#Add any new Metadata to be added here
         self.ip = ip
         self.obj_type = obj_type
         self.inst_id = inst_id
@@ -114,6 +114,7 @@ class BacnetPoint:
         self.point_floor = point_floor
         self.point_building = point_building
         self.point_source = point_source
+        #Add any new Metadata to be added here
 
 def configreadkey(filename, section, key):
     cfg = ConfigParser.ConfigParser()
@@ -146,9 +147,11 @@ def configread(filename):
     point_building=filter(None, cfg.get("/BMS", "point_building").split(','))
     point_source=filter(None, cfg.get("/BMS", "point_source").split(','))
     ip=filter(None, cfg.get("/BMS", "ip").split(','))
+    #Add any new Metadata to be added here
+    
     listofpoints = []
     for i in xrange(0, len(inst_id)):
-        listofpoints.append(BacnetPoint(ip[i], obj_type[i], inst_id[i], prop_type[i], value_type[i], value_unit[i], rate[i], point_parent[i], point_name[i], point_floor[i], point_building[i], point_source[i]))
+        listofpoints.append(BacnetPoint(ip[i], obj_type[i], inst_id[i], prop_type[i], value_type[i], value_unit[i], rate[i], point_parent[i], point_name[i], point_floor[i], point_building[i], point_source[i]))#Add any new Metadata to be added here
     return listofpoints
     
 def configreadpoint(filename, i):
@@ -167,7 +170,9 @@ def configreadpoint(filename, i):
     point_building=filter(None, cfg.get("/BMS", "point_building").split(','))
     point_source=filter(None, cfg.get("/BMS", "point_source").split(','))
     ip=filter(None, cfg.get("/BMS", "ip").split(','))
-    return BacnetPoint(ip[i], obj_type[i], inst_id[i], prop_type[i], value_type[i], value_unit[i], rate[i], point_parent[i], point_name[i], point_floor[i], point_building[i], point_source[i])
+    #Add any new Metadata to be added here
+    
+    return BacnetPoint(ip[i], obj_type[i], inst_id[i], prop_type[i], value_type[i], value_unit[i], rate[i], point_parent[i], point_name[i], point_floor[i], point_building[i], point_source[i])#Add any new Metadata to be added here
 
 def configaddpoint(filename, point):
     cfg = ConfigParser.ConfigParser()
@@ -186,6 +191,7 @@ def configaddpoint(filename, point):
     point_building=filter(None, cfg.get("/BMS", "point_building").split(','))
     point_source=filter(None, cfg.get("/BMS", "point_source").split(','))
     ip=filter(None, cfg.get("/BMS", "ip").split(','))
+    #Add any new Metadata to be added here
     
     inst_id.append(point.inst_id)
     obj_type.append(point.obj_type)
@@ -199,6 +205,7 @@ def configaddpoint(filename, point):
     point_building.append(point.point_building)
     point_source.append(point.point_source)
     ip.append(point.ip)
+    #Add any new Metadata to be added here
     
     cfg.set("/BMS", "inst_id", ",".join(inst_id))
     cfg.set("/BMS", "obj_type", ",".join(obj_type))
@@ -212,6 +219,7 @@ def configaddpoint(filename, point):
     cfg.set("/BMS", "point_building", ",".join(point_building))
     cfg.set("/BMS", "point_source", ",".join(point_source))
     cfg.set("/BMS", "ip", ",".join(ip))
+    #Add any new Metadata to be added here
     
     with open(filename, 'w') as configfile:
         cfg.write(configfile)
@@ -233,6 +241,7 @@ def configdeletepoint(filename, index):
     point_building=filter(None, cfg.get("/BMS", "point_building").split(','))
     point_source=filter(None, cfg.get("/BMS", "point_source").split(','))
     ip=filter(None, cfg.get("/BMS", "ip").split(','))
+    #Add any new Metadata to be added here
     
     del inst_id[index]
     del obj_type[index]
@@ -246,6 +255,7 @@ def configdeletepoint(filename, index):
     del point_building[index]
     del point_source[index]
     del ip[index]
+    #Add any new Metadata to be added here
     
     cfg.set("/BMS", "inst_id", ",".join(inst_id))
     cfg.set("/BMS", "obj_type", ",".join(obj_type))
@@ -259,6 +269,7 @@ def configdeletepoint(filename, index):
     cfg.set("/BMS", "point_building", ",".join(point_building))
     cfg.set("/BMS", "point_source", ",".join(point_source))
     cfg.set("/BMS", "ip", ",".join(ip))
+    #Add any new Metadata to be added here
     
     with open(filename, 'w') as configfile:
         cfg.write(configfile)
