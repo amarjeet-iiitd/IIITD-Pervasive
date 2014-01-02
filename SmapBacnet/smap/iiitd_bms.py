@@ -104,7 +104,7 @@ def ReadProperty(
         return value
 
 class BacnetPoint:
-    def __init__(self, ip, obj_type, inst_id, prop_type, value_type, value_unit, rate, point_parent, point_name, point_floor, point_building, point_source):#Add new metadata here in the constructor
+    def __init__(self, ip, obj_type, inst_id, prop_type, value_type, value_unit, rate, wing, point_parent, point_name, point_floor, point_building, point_source):#Add new metadata here in the constructor
         self.ip = ip
         self.obj_type = obj_type
         self.inst_id = inst_id
@@ -117,6 +117,7 @@ class BacnetPoint:
         self.point_floor = point_floor
         self.point_building = point_building
         self.point_source = point_source
+        self.wing = wing
         #Add any new Metadata to be added here
 
 class BACnetBMSDriver(SmapDriver):
@@ -137,6 +138,7 @@ class BACnetBMSDriver(SmapDriver):
             self.point_floors = [int(opts.get('point_floor'))]
             self.point_builings = [str(opts.get('point_builing'))]
             self.point_sources = [str(opts.get('point_source'))]
+            self.wings = [str(opts.get('wing'))]
             #Add any new Metadata to be added here
         else:
             print "Reading Multiple Points!"
@@ -152,6 +154,7 @@ class BACnetBMSDriver(SmapDriver):
             self.point_floors = [int(x) for x in opts.get('point_floor')]
             self.point_buildings = [str(x) for x in opts.get('point_building')]
             self.point_sources = [str(x) for x in opts.get('point_source')]
+            self.wings = [str(x) for x in opts.get('wing')]
             #Add any new Metadata to be added here
 
         self.point_count = len(self.inst_ids)
@@ -168,6 +171,7 @@ class BACnetBMSDriver(SmapDriver):
                 self.value_types[x],
                 self.value_units[x],
                 self.rates[x],
+                self.wings[x],
                 self.point_parents[x],
                 self.point_names[x],
                 self.point_floors[x],
@@ -188,10 +192,11 @@ class BACnetBMSDriver(SmapDriver):
         del self.point_floors
         del self.point_buildings
         del self.point_sources
+        del self.wings
         #Add any new Metadata to be added here"""
         self.current = 0  # #Index for the queue
 
-        self.SLOWEST_POSSIBLE_RATE = 64
+        self.SLOWEST_POSSIBLE_RATE = 200
         self.queue = []
         
         #Instantiate empty queue
@@ -220,7 +225,6 @@ class BACnetBMSDriver(SmapDriver):
                 self.add_collection(path)
 
             self.point_coll = self.get_collection(path)
-            print self.point_coll
             #Add metadata to the whole collection
             self.point_coll['Metadata'] = \
                 {'Instrument': {'Manufacturer': 'Trane',
@@ -228,7 +232,7 @@ class BACnetBMSDriver(SmapDriver):
             print "Adding TimeSeries"
             ts = self.add_timeseries('/' + str(x.point_source) + '/' + str(x.point_building) + '/' + str(x.point_parent) + '/' + x.point_name, x.value_unit, data_type='double',timezone='Asia/Kolkata')
             #Add Metadata to specific timeseries
-            ts['Metadata'] = {'Instrument': {'SamplingPeriod': str(str(x.rate) + ' Seconds')}, 'Extra': {'PhysicalParameter': x.value_type,'IP': x.ip}, 'Location': {'Floor': str(x.point_floor), 'Building': x.point_building}, 'BACnet': {'BACnetObjType': x.obj_type,'BACnetInstID': str(x.inst_id)}}     
+            ts['Metadata'] = {'Instrument': {'SamplingPeriod': str(str(x.rate) + ' Seconds')}, 'Extra': {'PhysicalParameter': x.value_type,'IP': x.ip, 'Wing': x.wing}, 'Location': {'Floor': str(x.point_floor), 'Building': x.point_building}, 'BACnet': {'BACnetObjType': x.obj_type,'BACnetInstID': str(x.inst_id)}}     
             #Add any new Metadata in the appropriate tags
 
         print "Initializing BACpypes!"

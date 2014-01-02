@@ -11,7 +11,7 @@ from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.decorators import login_required
 
 
-filepath='/home/romil/IP/smap/webconfig.conf'
+filepath='/home/pi/smap/iiitd_bms.conf'
 
 def loginpage(request):
     if request.method == 'GET':

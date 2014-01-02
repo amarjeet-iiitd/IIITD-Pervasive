@@ -309,3 +309,65 @@ def configdeletepoint(filename, index):
     
     with open(filename, 'w') as configfile:
         cfg.write(configfile)
+        
+def configeditpoint(filename, index, point):
+    cfg = ConfigParser.ConfigParser()
+    cfg.optionxform=str
+    cfg.read(filename)
+    
+    inst_id=filter(None, cfg.get("/BMS", "inst_id").split(','))
+    obj_type =filter(None, cfg.get("/BMS", "obj_type").split(','))
+    prop_type=filter(None, cfg.get("/BMS", "prop_type").split(','))
+    value_type=filter(None, cfg.get("/BMS", "value_type").split(','))
+    value_unit=filter(None, cfg.get("/BMS", "value_unit").split(','))
+    rate=filter(None, cfg.get("/BMS", "rate").split(','))
+    point_floor=filter(None, cfg.get("/BMS", "point_floor").split(','))
+    point_building=filter(None, cfg.get("/BMS", "point_building").split(','))
+    point_source=filter(None, cfg.get("/BMS", "point_source").split(','))
+    point_type=filter(None, cfg.get("/BMS", "point_type").split(','))
+    point_loadtype=filter(None, cfg.get("/BMS", "point_loadtype").split(','))
+    point_subloadtype=filter(None, cfg.get("/BMS", "point_subloadtype").split(','))
+    point_supplytype=filter(None, cfg.get("/BMS", "point_supplytype").split(','))
+    wing=filter(None, cfg.get("/BMS", "wing").split(','))
+    meterid=filter(None, cfg.get("/BMS", "meterid").split(','))
+    ip=filter(None, cfg.get("/BMS", "ip").split(','))
+    #Add any new Metadata to be added here
+    
+    inst_id[index]=point.inst_id
+    obj_type[index]=point.obj_type
+    prop_type[index]=point.prop_type
+    value_type[index]=point.value_type
+    value_unit[index]=point.value_unit
+    rate[index]=point.rate
+    point_floor[index]=point.point_floor
+    point_building[index]=point.point_building
+    point_source[index]=point.point_source
+    point_type[index]=point.point_type
+    point_loadtype[index]=point.point_loadtype
+    point_subloadtype[index]=point.point_subloadtype
+    point_supplytype[index]=point.point_supplytype
+    wing[index]=point.wing
+    meterid[index]=point.meterid
+    ip[index]=point.ip
+    #Add any new Metadata to be added here
+    
+    cfg.set("/BMS", "inst_id", ",".join(inst_id))
+    cfg.set("/BMS", "obj_type", ",".join(obj_type))
+    cfg.set("/BMS", "prop_type", ",".join(prop_type))
+    cfg.set("/BMS", "value_type", ",".join(value_type))
+    cfg.set("/BMS", "value_unit", ",".join(value_unit))
+    cfg.set("/BMS", "rate", ",".join(rate))
+    cfg.set("/BMS", "point_floor", ",".join(point_floor))
+    cfg.set("/BMS", "point_building", ",".join(point_building))
+    cfg.set("/BMS", "point_source", ",".join(point_source))
+    cfg.set("/BMS", "point_type", ",".join(point_type))
+    cfg.set("/BMS", "point_loadtype", ",".join(point_loadtype))
+    cfg.set("/BMS", "point_subloadtype", ",".join(point_subloadtype))
+    cfg.set("/BMS", "point_supplytype", ",".join(point_supplytype))
+    cfg.set("/BMS", "wing", ",".join(wing))
+    cfg.set("/BMS", "meterid", ",".join(meterid))
+    cfg.set("/BMS", "ip", ",".join(ip))
+    #Add any new Metadata to be added here
+    
+    with open(filename, 'w') as configfile:
+        cfg.write(configfile)

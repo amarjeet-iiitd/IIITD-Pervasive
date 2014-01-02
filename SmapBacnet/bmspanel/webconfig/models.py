@@ -22,6 +22,7 @@ class BacnetPointModel(models.Model):
 	point_name = models.CharField(max_length=200, default = 'RAT', verbose_name='Point Name (Metadata required for Path, eg. RAT)')
 	point_floor = models.IntegerField(default=0, verbose_name='Point Floor')
 	point_building = models.CharField(max_length=200, default = 'Academic Block', verbose_name='Point Building')
+	wing = models.CharField(max_length=100, default = '0', verbose_name='Point Wing')
 	point_source = models.CharField(max_length=200, default = 'SC1', verbose_name='Point BACnet Source (Metadata required for Path, eg. ModbusBridge)')
 	#Add any new Metadata to be added here
 	
